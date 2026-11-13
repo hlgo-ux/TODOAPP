@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Tasks</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 할 일 관리 카드 컨테이너 -->
+  <div class="card">
+    <h1 class="title">My Tasks</h1>
+    
+    <div class="content-wrapper">
+      <!-- 왼쪽: 입력과 진행률 -->
+      <div class="left-section">
+        <!-- 진행률 표시 영역 -->
+        <div class="progress-container">
+          <div class="progress-text" id="progress-text">0/0 완료 (0%)</div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+        </div>
+
+        <!-- 할 일 입력 폼 -->
+        <form id="todo-form" class="todo-form">
+          <input 
+            type="text" 
+            id="todo-input" 
+            class="todo-input" 
+            placeholder="새로운 할 일을 입력하세요" 
+            autocomplete="off"
+          >
+          <select id="category-select" class="category-select">
+            <option value="work">업무</option>
+            <option value="personal">개인</option>
+            <option value="study">공부</option>
+          </select>
+          <button type="submit" id="add-btn" class="add-btn">추가</button>
+        </form>
+      </div>
+
+      <!-- 오른쪽: 목록 -->
+      <div class="right-section">
+        <!-- 필터 및 검색 영역 -->
+        <div class="filter-section">
+          <input 
+            type="text" 
+            id="search-input" 
+            class="search-input" 
+            placeholder="할 일 검색..." 
+            autocomplete="off"
+          >
+          <div id="filter-group" class="filter-group">
+            <button type="button" class="filter-btn active" data-filter="all">전체</button>
+            <button type="button" class="filter-btn" data-filter="work">업무</button>
+            <button type="button" class="filter-btn" data-filter="personal">개인</button>
+            <button type="button" class="filter-btn" data-filter="study">공부</button>
+          </div>
+        </div>
+
+        <!-- 할 일 목록 -->
+        <ul id="todo-list" class="todo-list"></ul>
+
+        <!-- 하단 관리 영역 -->
+        <div class="card-footer">
+          <button type="button" id="clear-completed-btn" class="clear-completed-btn">완료된 항목 삭제</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
